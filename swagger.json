@@ -5,7 +5,7 @@
         "title": "Comunidad Proyectos API",
         "description": "API for managing community zones and infrastructure projects in Guatemala."
     },
-    "host": "localhost:8080",
+    "host": "cse341-project-n61w.onrender.com",
     "basePath": "/",
     "schemes": [
         "http",
