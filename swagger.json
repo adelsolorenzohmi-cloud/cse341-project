@@ -8,8 +8,8 @@
     "host": "cse341-project-n61w.onrender.com",
     "basePath": "/",
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],
     "consumes": [
         "application/json"
