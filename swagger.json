@@ -59,6 +59,9 @@
                 "responses": {
                     "201": {
                         "description": "Zone created successfully"
+                    },
+                    "400": {
+                        "description": "Validation failed: Please check required fields"
                     }
                 }
             }
@@ -121,6 +124,12 @@
                 "responses": {
                     "200": {
                         "description": "Zone updated successfully"
+                    },
+                    "400": {
+                        "description": "Update failed validation"
+                    },
+                    "404": {
+                        "description": "Zone not found"
                     }
                 }
             },
@@ -137,6 +146,9 @@
                 "responses": {
                     "200": {
                         "description": "Zone deleted successfully"
+                    },
+                    "404": {
+                        "description": "Zone not found"
                     }
                 }
             }
@@ -198,6 +210,9 @@
                 "responses": {
                     "201": {
                         "description": "Project created successfully"
+                    },
+                    "400": {
+                        "description": "Validation failed: Please check required fields"
                     }
                 }
             }
@@ -216,6 +231,9 @@
                 "responses": {
                     "200": {
                         "description": "Project details"
+                    },
+                    "404": {
+                        "description": "Project not found"
                     }
                 }
             },
@@ -273,6 +291,12 @@
                 "responses": {
                     "200": {
                         "description": "Project updated successfully"
+                    },
+                    "400": {
+                        "description": "Update failed validation"
+                    },
+                    "404": {
+                        "description": "Project not found"
                     }
                 }
             },
@@ -289,6 +313,9 @@
                 "responses": {
                     "200": {
                         "description": "Project deleted successfully"
+                    },
+                    "404": {
+                        "description": "Project not found"
                     }
                 }
             }
