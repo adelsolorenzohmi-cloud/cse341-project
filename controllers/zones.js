@@ -37,18 +37,16 @@ const createZone = async (req, res) => {
 
 const updateZone = async (req, res) => {
     try {
-        const updatedZone = await Zone.findByIdAndUpdate(
-            req.params.id,
-            {
-                zoneName: req.body.zoneName,
-                municipality: req.body.municipality,
-                department: req.body.department,
-                totalPopulation: req.body.totalPopulation,
-                communityLeaderName: req.body.communityLeaderName
-            },
-            { new: true, runValidators: true } // runValidators ensures Mongoose schema rules are enforced on update
-        );
-        if (!updatedZone) return res.status(404).json({ message: 'Zone not found' });
+        const zone = await Zone.findById(req.params.id);
+        if (!zone) return res.status(404).json({ message: 'Zone not found' });
+
+        zone.zoneName = req.body.zoneName;
+        zone.municipality = req.body.municipality;
+        zone.department = req.body.department;
+        zone.totalPopulation = req.body.totalPopulation;
+        zone.communityLeaderName = req.body.communityLeaderName;
+
+        const updatedZone = await zone.save();
         res.status(200).json(updatedZone);
     } catch (err) {
         res.status(400).json({ message: 'Update failed validation', error: err.message });

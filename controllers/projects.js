@@ -40,21 +40,19 @@ const createProject = async (req, res) => {
 
 const updateProject = async (req, res) => {
     try {
-        const updatedProject = await Project.findByIdAndUpdate(
-            req.params.id,
-            {
-                projectName: req.body.projectName,
-                projectType: req.body.projectType,
-                budgetQuetzales: req.body.budgetQuetzales,
-                status: req.body.status,
-                startDate: req.body.startDate,
-                estimatedEndDate: req.body.estimatedEndDate,
-                beneficiaryFamiliesCount: req.body.beneficiaryFamiliesCount,
-                zoneId: req.body.zoneId
-            },
-            { new: true, runValidators: true }
-        );
-        if (!updatedProject) return res.status(404).json({ message: 'Project not found' });
+        const project = await Project.findById(req.params.id);
+        if (!project) return res.status(404).json({ message: 'Project not found' });
+
+        project.projectName = req.body.projectName;
+        project.projectType = req.body.projectType;
+        project.budgetQuetzales = req.body.budgetQuetzales;
+        project.status = req.body.status;
+        project.startDate = req.body.startDate;
+        project.estimatedEndDate = req.body.estimatedEndDate;
+        project.beneficiaryFamiliesCount = req.body.beneficiaryFamiliesCount;
+        project.zoneId = req.body.zoneId;
+
+        const updatedProject = await project.save();
         res.status(200).json(updatedProject);
     } catch (err) {
         res.status(400).json({ message: 'Update failed validation', error: err.message });
