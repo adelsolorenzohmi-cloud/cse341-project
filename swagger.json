@@ -52,6 +52,13 @@
                                 "communityLeaderName": {
                                     "type": "string"
                                 }
+                            },
+                            "example": {
+                                "zoneName": "Central Zone",
+                                "municipality": "Nahualá",
+                                "department": "Sololá",
+                                "totalPopulation": 5000,
+                                "communityLeaderName": "Juan Tzep"
                             }
                         }
                     }
@@ -117,6 +124,13 @@
                                 "communityLeaderName": {
                                     "type": "string"
                                 }
+                            },
+                            "example": {
+                                "zoneName": "Central Zone Updated",
+                                "municipality": "Nahualá",
+                                "department": "Sololá",
+                                "totalPopulation": 5200,
+                                "communityLeaderName": "Juan Tzep"
                             }
                         }
                     }
@@ -203,6 +217,16 @@
                                 "zoneId": {
                                     "type": "string"
                                 }
+                            },
+                            "example": {
+                                "projectName": "Clean Water Pipeline",
+                                "projectType": "Infrastructure",
+                                "budgetQuetzales": 75000,
+                                "status": "Planning",
+                                "startDate": "2026-03-01",
+                                "estimatedEndDate": "2026-08-30",
+                                "beneficiaryFamiliesCount": 120,
+                                "zoneId": "PASTE_VALID_ZONE_ID_HERE"
                             }
                         }
                     }
@@ -284,6 +308,16 @@
                                 "zoneId": {
                                     "type": "string"
                                 }
+                            },
+                            "example": {
+                                "projectName": "Clean Water Pipeline Updated",
+                                "projectType": "Infrastructure",
+                                "budgetQuetzales": 80000,
+                                "status": "In Progress",
+                                "startDate": "2026-03-01",
+                                "estimatedEndDate": "2026-09-30",
+                                "beneficiaryFamiliesCount": 130,
+                                "zoneId": "PASTE_VALID_ZONE_ID_HERE"
                             }
                         }
                     }
