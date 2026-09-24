@@ -17,6 +17,17 @@
     "produces": [
         "application/json"
     ],
+    "securityDefinitions": {
+        "GitHubOAuth": {
+            "type": "oauth2",
+            "description": "GitHub OAuth2 Authentication",
+            "flow": "implicit",
+            "authorizationUrl": "https://github.com/login/oauth/authorize",
+            "scopes": {
+                "user:email": "Access user email"
+            }
+        }
+    },
     "paths": {
         "/zones": {
             "get": {
@@ -29,6 +40,13 @@
             },
             "post": {
                 "summary": "Create a new zone",
+                "security": [
+                    {
+                        "GitHubOAuth": [
+                            "user:email"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "zone",
@@ -69,6 +87,9 @@
                     },
                     "400": {
                         "description": "Validation failed: Please check required fields"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
@@ -95,6 +116,13 @@
             },
             "put": {
                 "summary": "Update a zone by ID",
+                "security": [
+                    {
+                        "GitHubOAuth": [
+                            "user:email"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -142,6 +170,9 @@
                     "400": {
                         "description": "Update failed validation"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
                     "404": {
                         "description": "Zone not found"
                     }
@@ -149,6 +180,13 @@
             },
             "delete": {
                 "summary": "Delete a zone by ID",
+                "security": [
+                    {
+                        "GitHubOAuth": [
+                            "user:email"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -160,6 +198,9 @@
                 "responses": {
                     "200": {
                         "description": "Zone deleted successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     },
                     "404": {
                         "description": "Zone not found"
@@ -178,6 +219,13 @@
             },
             "post": {
                 "summary": "Create a new project",
+                "security": [
+                    {
+                        "GitHubOAuth": [
+                            "user:email"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "project",
@@ -237,6 +285,9 @@
                     },
                     "400": {
                         "description": "Validation failed: Please check required fields"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
@@ -263,6 +314,13 @@
             },
             "put": {
                 "summary": "Update a project by ID",
+                "security": [
+                    {
+                        "GitHubOAuth": [
+                            "user:email"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -329,6 +387,9 @@
                     "400": {
                         "description": "Update failed validation"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
                     "404": {
                         "description": "Project not found"
                     }
@@ -336,6 +397,13 @@
             },
             "delete": {
                 "summary": "Delete a project by ID",
+                "security": [
+                    {
+                        "GitHubOAuth": [
+                            "user:email"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -347,6 +415,9 @@
                 "responses": {
                     "200": {
                         "description": "Project deleted successfully"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     },
                     "404": {
                         "description": "Project not found"
